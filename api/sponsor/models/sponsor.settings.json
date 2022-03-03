@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsors",
+  "info": {
+    "name": "sponsor",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "website": {
+      "type": "string"
+    },
+    "signup": {
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "partnerWebsite": {
+      "type": "string"
+    },
+    "partnerLogo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "partnerMessage": {
+      "type": "richtext"
+    },
+    "edition": {
+      "via": "sponsor",
+      "model": "edition"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "partnerWebsite"
+    }
+  }
+}

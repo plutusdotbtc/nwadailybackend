@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "picks",
+  "info": {
+    "name": "pick"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "edition": {
+      "via": "pick",
+      "model": "edition"
+    }
+  }
+}

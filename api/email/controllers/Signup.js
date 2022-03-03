@@ -1,0 +1,23 @@
+module.exports = {
+    index: async ctx => {
+      const results = await strapi.query('email').find({ email: ctx.request.body.email })
+      console.log(results.length)
+      // test
+      if (results.length === 0) {
+      const info = await strapi.services.email.create(ctx.request.body)
+        await strapi.plugins['email'].services.email.send({
+          to: ctx.request.body.email,
+          from: "NWA Daily <crew@northwestarkansasdaily.com>",
+          replyTo: "crew@northwestarkansasdaily.com",
+          subject: "Who's Your Best Friend in NWA?",
+          html: `<h2 style="font-family:Helvetica;font-size:19px;font-weight:400;color:rgb(0,0,0);margin:0px 0px 10px">Thanks for signing up for NWA Daily...</h2><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">We deliver a summary of the most important news in NWA every weekday.</p><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">NWA Daily should hit your inbox every morning Monday through Friday. To make sure that happens, we recommend following these quick steps:</p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);margin-bottom:0px;font-size:15px"><strong>Gmail users</strong>—move us to your primary inbox</p><ul style="padding:0px 10px 0px 30px;color:rgb(32,32,32);font-family:Helvetica;font-size:16px;margin-top:0px"><li dir="ltr" style="margin-left:15px;font-size:15px;line-height:22.5px;margin-bottom:0px"><strong>On your phone?</strong> Hit the 3 dots at top right corner, click "Move to" then "Primary"</li><li dir="ltr" style="margin-left:15px;font-size:15px;line-height:22.5px;margin-bottom:0px"><strong>On desktop?</strong> Back out of this email then drag and drop this email into the "Primary" tab near the top left of your screen</li></ul><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px"><strong>Apple mail users</strong>—tap on our email address at the top of this email (next to "From:" on mobile) and click “Add to VIPs”</p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px"><strong>For everyone else</strong>—follow <font color="black"><a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://help.aweber.com/hc/en-us/articles/204029246" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://help.aweber.com/hc/en-us/articles/204029246&source=gmail&ust=1612219757918000&usg=AFQjCNGJt_M6thGYHkMUsu8UYI9mmMAunQ">these instructions</a></font></p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">If you have any questions or feedback, don’t hesitate to reach out.</p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">One last thing. Who's your best friend in the area? Get a jumpstart on getting referral bonuses by sharing NWA Daily with them <font color="black"><a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://northwestarkansasdaily.com/share/?id=${ctx.request.body.email}" target="_blank">here</a></font></p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">Thanks,</p><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">The Crew at NWA Daily</p><p dir="ltr" style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">P.S. If you can't wait, you can check out our most recent newsletter <font color="black"><a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://northwestarkansasdaily.com/" target="_blank">here</a></font></p><hr style="color:rgb(32,32,32);font-family:Helvetica;font-size:16px;background-color:grey;border-color:transparent;margin-top:2em"><p style="font-family:Helvetica;line-height:14px;margin-top:0px;color:rgb(32,32,32);font-size:15px"><small style="line-height:14px;font-size:12px">You were sent this message because you opted-in and subscribed to NWA Daily. If you believe this has been sent to you in error, you can safely ignore it, or you can unsubscribe <a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://northwestarkansasdaily.com/unsubscribe/" style="color:rgb(0,90,182);text-decoration-line:none;font-family:Arial,sans-serif;line-height:14px" target="_blank">here</a>.</small></p>`
+        });
+        ctx.send("Email sent")
+        return info
+      }
+      else {
+        return {}
+      }
+    }
+}
+

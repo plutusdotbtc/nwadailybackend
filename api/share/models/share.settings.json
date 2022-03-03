@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shares",
+  "info": {
+    "name": "share",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sharer": {
+      "type": "email"
+    },
+    "sharee" : {
+      "type": "email"
+    },
+    "source" : {
+      "type": "string"
+    },
+    "shareDate" : {
+      "type": "string"
+    },
+    "property" : {
+      "type": "string"
+    }
+  }
+}

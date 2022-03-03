@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails",
+  "info": {
+    "name": "email"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "location" : {
+      "type": "string"
+    },
+    "source" : {
+      "type": "string"
+    },
+    "property" : {
+      "type": "string"
+    },
+    "subscribeDate" : {
+      "type": "string"
+    }
+  }
+}

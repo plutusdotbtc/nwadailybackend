@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "editions",
+  "info": {
+    "name": "edition",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "headline": {
+      "type": "string"
+    },
+    "posts": {
+      "via": "edition",
+      "collection": "post"
+    },
+    "date": {
+      "type": "date"
+    },
+    "sponsor": {
+      "model": "sponsor",
+      "via": "edition"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "headline"
+    },
+    "writer": {
+      "model": "writer",
+      "via": "editions"
+    },
+    "pick": {
+      "model": "pick",
+      "via": "edition"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "published",
+      "required": true
+    }
+  }
+}

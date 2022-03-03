@@ -1,0 +1,13 @@
+module.exports = {
+    index: async ctx => {
+      console.log(ctx.request.body)
+        await strapi.plugins['email'].services.email.send({
+          to: ctx.request.body.sharee,
+          from: "NWA Daily <crew@northwestarkansasdaily.com>",
+          replyTo: "crew@northwestarkansasdaily.com",
+          subject: ctx.request.body.sharerId+' wants you to check out NWA Daily',
+          html: `<h2 style="font-family:Helvetica;font-size:19px;font-weight:400;color:rgb(0,0,0);margin:0px 0px 10px">You've got a good friend...</h2><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">Your friend <a href="mailto:${ctx.request.body.sharerId}" style="border-bottom:2px solid #307765;text-decoration:none;color:#333">${ctx.request.body.sharerId}</a> thinks you'd enjoy <a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://northwestarkansasdaily.com/source?id=share+${ctx.request.body.sharerId} target="_blank">NWA Daily</a></p><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">Our free email newsletter provides a summary of the most important news in NWA every weekday. It's a great way to quickly consume the news in the area and is conveniently delivered to your inbox.</p><p style="font-family:Helvetica;line-height:20px;margin-top:0px;color:rgb(32,32,32);font-size:15px">If you're interested, you can subscribe here:</p><br><div style="margin:auto; text-align:Center;"><p style="font-size:12px; line-height:20px; margin:auto"><a href="https://www.northwestarkansasdaily.com/subscribe?id=share+${ctx.request.body.sharerId}" style="max-width:150px;font-family:Helvetica,Arial,sans-serif;font-size:16px;color:#ffffff;font-weight:900;text-decoration:none;text-align:center;background-color:#307765;padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;border-radius:4px;">Subscribe</a></p></div><hr style="color:rgb(32,32,32);font-family:Helvetica;font-size:16px;background-color:grey;border-color:transparent;margin-top:2em"><p style="font-family:Helvetica;line-height:14px;margin-top:0px;color:rgb(32,32,32);font-size:15px"><small style="line-height:14px;font-size:12px">If you believe this has been sent to you in error, you can safely ignore it, or you can unsubscribe <a style="border-bottom:2px solid #307765;text-decoration:none;color:#333" href="https://northwestarkansasdaily.com/unsubscribe/" style="color:rgb(0,90,182);text-decoration-line:none;font-family:Arial,sans-serif;line-height:14px" target="_blank">here</a>.</small></p>`
+        });
+        ctx.send("Email sent")
+    }
+}

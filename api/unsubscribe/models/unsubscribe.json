@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "unsubscribes",
+  "info": {
+    "name": "unsubscribe"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "location" : {
+      "type": "string"
+    },
+    "source" : {
+      "type": "string"
+    },
+    "property" : {
+      "type": "string"
+    },
+    "unSubscribeDate" : {
+      "type": "string"
+    },
+    "subscribeDate" : {
+      "type": "string"
+    }
+  }
+}

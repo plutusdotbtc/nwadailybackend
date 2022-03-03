@@ -1,0 +1,11 @@
+{
+    "provider":"aws-s3",
+    "providerOptions": {
+        "accessKeyId": "AKIA3MOVNEHNDTPLDDTR",
+        "secretAccessKey": "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",
+        "region": "us-east-1",
+        "params": {
+            "Bucket": "nwa-daily-photos"
+        }
+    }
+}

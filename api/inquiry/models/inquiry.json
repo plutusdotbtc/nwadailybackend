@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries",
+  "info": {
+    "name": "inquiry"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "oneLiner" : {
+      "type": "string"
+    },
+    "event" : {
+      "type": "string"
+    },
+    "sponsor" : {
+      "type": "string"
+    },
+    "property" : {
+      "type": "string"
+    }
+  }
+}

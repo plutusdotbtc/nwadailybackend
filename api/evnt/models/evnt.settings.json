@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "evnts",
+  "info": {
+    "name": "evnt",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "event": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "sg_content_type": {
+      "type": "string"
+    },
+    "sg_event_id": {
+      "type": "string"
+    },
+    "sg_message_id": {
+      "type": "string"
+    },
+    "useragent": {
+      "type": "string"
+    },
+    "response": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

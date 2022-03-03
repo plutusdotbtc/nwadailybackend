@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/unsubscribes",
+      "handler": "unsubscribe.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unsubscribes/count",
+      "handler": "unsubscribe.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unsubscribes/:id",
+      "handler": "unsubscribe.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/unsubscribes",
+      "handler": "unsubscribe.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/update",
+      "handler": "update.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/unsubscribes/:id",
+      "handler": "unsubscribe.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/unsubscribes/:id",
+      "handler": "unsubscribe.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
